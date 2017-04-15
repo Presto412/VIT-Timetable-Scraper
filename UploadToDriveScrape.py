@@ -10,6 +10,16 @@ from CaptchaParser import CaptchaParser
 import ssl
 import re
 import requests
+import datetime
+
+
+def calsem():
+        now = datetime.datetime.now()
+        if int(now.month)>6 and int(now.month)<13:
+                sem="FS"
+        else:
+                sem="WS"
+        return sem
 
 br= mechanize.Browser()
 br.set_handle_equiv(True)
@@ -43,7 +53,7 @@ br.select_form('parent_login')
 regno=raw_input("Registration Number:")
 dob=raw_input("Date of Birth:")
 mno=raw_input("Registered Parent Mobile Number:")
-sem=raw_input("Semester(FS/WS):");
+sem=calsem()
 br.form['wdregno']=regno
 br.form['vrfcd']=str(captcha)
 br.form['wdpswd'] =dob 
