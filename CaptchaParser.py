@@ -1,3 +1,4 @@
+#credits to karthikb
 import json
 from PIL import Image
 class CaptchaParser:
