@@ -6,7 +6,7 @@ from mechanize import Browser
 from BeautifulSoup import BeautifulSoup
 from StringIO import StringIO
 import json
-from CaptchaParser import CaptchaParser
+from Captcha_Parser import CaptchaParse
 import ssl
 import re
 import requests
@@ -43,8 +43,7 @@ im = soup.find('img', id='imgCaptcha')
 image_response = br.open_novisit(im['src'])
 img=Image.open(StringIO(image_response.read()))
 imgcpy=img.copy()
-parser=CaptchaParser()
-captcha=parser.getCaptcha(img)
+captcha=CaptchaParse(imgcpy)
 
 
 print "Recognized Captcha:"+str(captcha)
